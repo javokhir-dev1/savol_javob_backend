@@ -2,8 +2,8 @@ import UserResult from "../models/userresult.model.js";
 
 export const createUserResult = async (req, res) => {
     try {
-        const { user_id } = req.body
-        const userResult = await UserResult.create({ user_id })
+        const { user_id, questions, correctAnswers, date } = req.body
+        const userResult = await UserResult.create({ user_id, questions, correctAnswers, date })
         res.json(userResult)
     } catch (err) {
         console.log(err)

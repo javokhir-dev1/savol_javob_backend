@@ -1,6 +1,24 @@
 import { Router } from 'express'
 const router = Router()
 
+router.get("/time", (req, res) => {
+    try {
+
+        const now = new Date()
+
+        const day = String(now.getDate()).padStart(2, "0")
+        const month = String(now.getMonth() + 1).padStart(2, "0")
+        const year = now.getFullYear()
+
+        const formattedDate = `${day}:${month}:${year}`
+        res.json({
+            date: formattedDate
+        })
+    } catch(err) {
+        console.log(err)
+    }
+})
+
 import UserRouter from "./user.routes.js"
 import UserAnswerRouter from "./userAnwer.routes.js"
 import QuestionRouter from "./question.routes.js"

@@ -8,7 +8,7 @@ dotenv.config()
 const app = express()
 app.use(express.json())
 app.use(cors())
-app.use(checkApiToken)
+// app.use(checkApiToken)
 
 import MainRouter from "./routes/index.js"
 import checkApiToken from './middlewares/checkApiToken.js';
