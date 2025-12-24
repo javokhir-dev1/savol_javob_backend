@@ -10,6 +10,12 @@ export const createUser = async (req, res) => {
             })
         }
 
+        const isUserExists = await User.findOne({ where: { user_id } })
+
+        if (isUserExists) {
+            return res.json({message: "User already exists"})
+        }
+
         const newUser = await User.create({
             user_id,
             full_name
